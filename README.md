@@ -1,4 +1,4 @@
-# Arduino_SigmaLogger
+# SigmaLogger
 SigmaLoger - Yet anoother loger with ability to external publisher, buffering and timestamp
 
 ## SigmaLoger
