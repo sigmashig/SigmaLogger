@@ -1,0 +1,24 @@
+{
+    "name": "SigmaLogger",
+    "version": "0.1.0",
+    "description": "The library, provides a universal Logger",
+    "keywords": "Loger",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sigmashig/SigmaLogger.git"
+    },
+    "authors": [
+        {
+            "name": "Ihor Shevchenko",
+            "email": "igor@ishevchenko.net",
+            "url": "https://github.com/sigmashig/SigmaLogger.git"
+        }
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "powerbroker2/SafeString": "^4.1.40"
+    },
+    "homepage": "https://github.com/sigmashig",
+    "frameworks": "arduino",
+    "platforms": "atmelavr, espressif8266, espressif32"
+}
