@@ -2,6 +2,7 @@
 
 void SigmaLoger::Log(SigmaLogLevel level)
 {
+	if (loger == nullptr)
 	if (timestamp != NULL)
 	{
 		loger->prefix(timestamp());
@@ -16,12 +17,22 @@ void SigmaLoger::Log(SigmaLogLevel level)
 SigmaLoger::SigmaLoger(int size, SigmaLogPublisher publisher, SigmaLogTimestamp timestamp)
 	: size(size), publisher(publisher), timestamp(timestamp)
 {
-	loger_SAFEBUFFER = new char[size + 1];
-	loger = new SafeString(size, loger_SAFEBUFFER, "");
+	if (size > 0) {
+		loger_SAFEBUFFER = new char[size + 1];
+		loger = new SafeString(size, loger_SAFEBUFFER, "");
+	}
+	else
+	{
+		loger = nullptr;
+	}
 }
 
 SigmaLoger &SigmaLoger::printf(const char *format, va_list args)
 {
+	if (loger == nullptr)
+	{
+		return *this;
+	}
 	int maxSize = size - loger->length() - 1;	// -1 for the trailing '\0'
 	int len = vsnprintf(NULL, 0, format, args); // calculate size of the string
 	if (len <= maxSize)
@@ -62,4 +73,4 @@ const char *SigmaLoger::Timestamp()
 	return timest;
 }
 
-SigmaLoger *Log;
+//SigmaLoger *Log;
