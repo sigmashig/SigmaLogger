@@ -21,8 +21,8 @@ class SigmaLoger
 {
 public:
 	SigmaLoger(int size, SigmaLogPublisher publisher = SigmaLoger::SerialPrint, SigmaLogTimestamp timestamp = SigmaLoger::Timestamp);
-    void SetPublisher(SigmaLogPublisher publisher) {this->publisher = publisher;}
-    void SetTimestamp(SigmaLogTimestamp timestamp) {this->timestamp = timestamp;}
+	void SetPublisher(SigmaLogPublisher publisher) { this->publisher = publisher; }
+	void SetTimestamp(SigmaLogTimestamp timestamp) { this->timestamp = timestamp; }
 	SigmaLoger &Printf(const char *format, ...)
 	{
 		if (loger == nullptr)
@@ -279,4 +279,4 @@ private:
 	static void SerialPrint(SigmaLogLevel level, const char *message);
 	static const char *Timestamp();
 };
-extern SigmaLoger *Log;
+// extern SigmaLoger *Log;
