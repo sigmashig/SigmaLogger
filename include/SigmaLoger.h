@@ -267,6 +267,7 @@ public:
 		loger->concat(message);
 		Log(SIGMALOG_INTERNAL);
 	}
+	static String GetLogLevel(SigmaLogLevel level);
 
 private:
 	int size;
@@ -279,4 +280,3 @@ private:
 	static void SerialPrint(SigmaLogLevel level, const char *message);
 	static const char *Timestamp();
 };
-// extern SigmaLoger *Log;

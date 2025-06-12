@@ -3,21 +3,22 @@
 void SigmaLoger::Log(SigmaLogLevel level)
 {
 	if (loger == nullptr)
-	if (timestamp != NULL)
-	{
-		loger->prefix(timestamp());
-	}
+		if (timestamp != NULL)
+		{
+			loger->prefix(timestamp());
+		}
 	if (publisher != NULL)
 	{
 		publisher(level, loger->c_str());
 	}
 	loger->clear();
 }
- 
+
 SigmaLoger::SigmaLoger(int size, SigmaLogPublisher publisher, SigmaLogTimestamp timestamp)
 	: size(size), publisher(publisher), timestamp(timestamp)
 {
-	if (size > 0) {
+	if (size > 0)
+	{
 		loger_SAFEBUFFER = new char[size + 1];
 		loger = new SafeString(size, loger_SAFEBUFFER, "");
 	}
@@ -73,4 +74,26 @@ const char *SigmaLoger::Timestamp()
 	return timest;
 }
 
-//SigmaLoger *Log;
+String SigmaLoger::GetLogLevel(SigmaLogLevel level)
+{
+	switch (level)
+	{
+	case SIGMALOG_OFF:
+		return "OFF";
+	case SIGMALOG_INTERNAL:
+		return "INTERNAL";
+	case SIGMALOG_FATAL:
+		return "FATAL";
+	case SIGMALOG_ERROR:
+		return "ERROR";
+	case SIGMALOG_WARN:
+		return "WARN";
+	case SIGMALOG_INFO:
+		return "INFO";
+	case SIGMALOG_DEBUG:
+		return "DEBUG";
+	case SIGMALOG_ALL:
+		return "ALL";
+	}
+}
+// SigmaLoger *Log;
