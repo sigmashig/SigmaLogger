@@ -95,5 +95,6 @@ String SigmaLoger::GetLogLevel(SigmaLogLevel level)
 	case SIGMALOG_ALL:
 		return "ALL";
 	}
+	return "UNKNOWN";
 }
 // SigmaLoger *Log;
