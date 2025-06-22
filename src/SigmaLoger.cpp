@@ -2,11 +2,11 @@
 
 void SigmaLoger::Log(SigmaLogLevel level)
 {
-	if (loger == nullptr)
-		if (timestamp != NULL)
-		{
-			loger->prefix(timestamp());
-		}
+	// if (loger == nullptr)
+	if (timestamp != NULL)
+	{
+		loger->prefix(timestamp());
+	}
 	if (publisher != NULL)
 	{
 		publisher(level, loger->c_str());
